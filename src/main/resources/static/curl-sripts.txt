@@ -1,0 +1,14 @@
+curl -i \
+-H "Accept: application/json" \
+-H "Content-Type:application/json" \
+-X GET "http://localhost:8082/cached?request=getLocationList"
+
+curl -i \
+-H "Accept: application/json" \
+-H "Content-Type:application/json" \
+-X GET "http://localhost:8082/cache"
+
+curl -i \
+-H "Accept: application/json" \
+-H "Content-Type:application/json" \
+-X GET "http://localhost:8082/hello"
