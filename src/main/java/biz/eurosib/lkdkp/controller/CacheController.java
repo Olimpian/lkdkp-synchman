@@ -17,11 +17,6 @@ public class CacheController {
     @Autowired
     private CacheService service;
 
-    @GetMapping("/hello")
-    public String hello(){
-        return "Hello, i'm sych-manager!";
-    }
-
     @GetMapping("/cached")
     public boolean isCached(@RequestParam(name = "request") String request) {
         List<CacheAnswer> answers = repository.findByRequest(request);
@@ -34,4 +29,21 @@ public class CacheController {
         return "cached";
     }
 
+    @GetMapping("/cache")
+    public String cache(@RequestParam(name = "request") String request) {
+        service.cache(request);
+        return "cached " + request;
+    }
+
+
+    @GetMapping("/hello")
+    public String hello(){
+        return "Hello, i'm sych-manager!";
+    }
+
+    @GetMapping("/version")
+    public String version() {
+        //todo release version
+        return "1.0";
+    }
 }
